@@ -30,7 +30,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="relative w-full py-[100px] overflow-hidden bg-[#0D0D10]">
+    <section id="testimonials" className="relative w-full py-14 md:py-[100px] overflow-hidden bg-[#0D0D10]">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FF3030]/[0.012] to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

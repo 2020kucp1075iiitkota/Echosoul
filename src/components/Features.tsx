@@ -15,7 +15,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="relative w-full py-[100px] overflow-hidden bg-[#0D0D10]">
+    <section id="features" className="relative w-full py-14 md:py-[100px] overflow-hidden bg-[#0D0D10]">
       <div className="absolute inset-0 bg-gradient-to-b from-[#FF3030]/[0.015] via-transparent to-[#FF3030]/[0.015] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

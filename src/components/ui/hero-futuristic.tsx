@@ -117,13 +117,15 @@ const Scene = () => {
   }, [rawMap, depthMap]);
 
   const [w, h] = useAspect(WIDTH, HEIGHT);
+  const { size } = useThree();
+  const isMobile = size.width < 768;
 
   useFrame(({ clock }) => {
     uniforms.uProgress.value = Math.sin(clock.getElapsedTime() * 0.5) * 0.5 + 0.5;
     if (meshRef.current && 'material' in meshRef.current && meshRef.current.material) {
       const mat = meshRef.current.material as any;
       if ('opacity' in mat) {
-        mat.opacity = THREE.MathUtils.lerp(mat.opacity, visible ? 1 : 0, 0.07);
+        mat.opacity = THREE.MathUtils.lerp(mat.opacity, (visible && !isMobile) ? 1 : 0, 0.07);
       }
     }
   });
@@ -132,9 +134,10 @@ const Scene = () => {
     uniforms.uPointer.value = pointer;
   });
 
-  const scaleFactor = 0.4;
+  const scaleFactor = isMobile ? 0.55 : 0.4;
+  const xOffset = isMobile ? 0 : w * 0.22;
   return (
-    <mesh ref={meshRef} position={[w * 0.22, 0, 0]} scale={[w * scaleFactor, h * scaleFactor, 1]} material={material}>
+    <mesh ref={meshRef} position={[xOffset, 0, 0]} scale={[w * scaleFactor, h * scaleFactor, 1]} material={material}>
       <planeGeometry />
     </mesh>
   );

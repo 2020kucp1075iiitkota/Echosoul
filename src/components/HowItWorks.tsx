@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mic, Brain, Infinity } from "lucide-react";
+import React from "react";
 
 const steps = [
   {
@@ -30,7 +31,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative w-full py-[100px] overflow-hidden bg-[#0D0D10]">
+    <section id="how-it-works" className="relative w-full py-14 md:py-[100px] overflow-hidden bg-[#0D0D10]">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FF3030]/[0.015] to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,9 +51,10 @@ export default function HowItWorks() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-6 lg:gap-8">
           {steps.map((step, index) => (
-            <motion.div key={step.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+            <React.Fragment key={step.title}>
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7, delay: index * 0.15 }}
               className={step.highlight ? "p-px rounded-[17px]" : ""}
               style={step.highlight ? { background: "linear-gradient(135deg, #FF3030, rgba(255,48,48,0.2))" } : {}}>
@@ -94,6 +96,17 @@ export default function HowItWorks() {
                 )}
               </div>
             </motion.div>
+            {/* Mobile flow connector */}
+            {index < steps.length - 1 && (
+              <div className="flex md:hidden justify-center items-center py-2">
+                <div className="flex flex-col items-center gap-1">
+                  <div className="w-px h-5 bg-gradient-to-b from-[#FF3030]/50 to-[#FF3030]/20" />
+                  <div className="w-2 h-2 rounded-full border border-[#FF3030]/50 bg-[#FF3030]/20" />
+                  <div className="w-px h-5 bg-gradient-to-b from-[#FF3030]/20 to-transparent" />
+                </div>
+              </div>
+            )}
+            </React.Fragment>
           ))}
         </div>
       </div>

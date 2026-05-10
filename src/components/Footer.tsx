@@ -91,7 +91,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+        <div className="py-4 flex flex-col sm:flex-row items-center justify-between gap-3"
           style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
           <p className="text-xs" style={{ color: "rgba(236,236,236,0.25)", fontFamily: "var(--font-inter), Inter, sans-serif" }}>
             © {new Date().getFullYear()} EchoSoul Inc. All rights reserved.
