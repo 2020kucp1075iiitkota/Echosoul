@@ -29,9 +29,8 @@ export const LampContainer = ({
           whileInView={{ opacity: 1, width: "40rem" }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
-          style={{ backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))` }}
+          style={{ backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`, maskImage: "linear-gradient(to bottom, white 30%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, white 30%, transparent)" }}
           className="absolute top-0 right-1/2 h-48 w-[40rem] bg-gradient-conic from-[#FF3030] via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
-          style={{ maskImage: "linear-gradient(to bottom, white 30%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, white 30%, transparent)" }}
         >
           <div className="absolute w-40 h-full left-0 bg-[#0D0D10] bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
         </motion.div>
