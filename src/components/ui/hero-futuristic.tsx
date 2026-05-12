@@ -164,12 +164,25 @@ export const HeroFuturistic = () => {
   return (
     <div className="h-svh relative overflow-hidden bg-[#0D0D10]">
 
-      {/* Text overlay — absolute, left-aligned, on top of canvas */}
+      {/* Badge — pinned to top black area on mobile, hidden on desktop */}
+      <div
+        className="sm:hidden absolute top-20 left-0 right-0 z-50 flex justify-center pointer-events-none px-6"
+        style={{ opacity: visibleLines > 0 ? 1 : 0, transition: 'opacity 0.6s ease' }}
+      >
+        <div className="inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm bg-[#0D0D10]/60">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#FF3030] opacity-70" />
+          <span className="text-[9px] tracking-[3px] uppercase" style={{ color: '#FF3030' }}>
+            AI-Powered Digital Immortality
+          </span>
+        </div>
+      </div>
+
+      {/* Text overlay */}
       <div className="h-svh w-full absolute z-50 pointer-events-none flex justify-center flex-col pt-20 px-6 items-center text-center sm:items-start sm:text-left sm:px-10 md:px-14 sm:max-w-2xl sm:left-0">
 
-        {/* Badge */}
+        {/* Badge — desktop only inline */}
         <div
-          className="inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm mb-4 sm:mb-8 sm:self-start"
+          className="hidden sm:inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm mb-8 self-start"
           style={{ opacity: visibleLines > 0 ? 1 : 0, transition: 'opacity 0.6s ease' }}
         >
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF3030] opacity-70" />
@@ -179,7 +192,7 @@ export const HeroFuturistic = () => {
         </div>
 
         {/* Title */}
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           {titleLines.map((line, i) => (
             <div
               key={i}
@@ -206,20 +219,20 @@ export const HeroFuturistic = () => {
           className={subtitleVisible ? 'hero-sub-in' : ''}
           style={{
             opacity: subtitleVisible ? 1 : 0,
-            color: 'rgba(236, 236, 236, 0.38)',
+            color: 'rgba(236, 236, 236, 0.5)',
             fontSize: '0.9rem',
             lineHeight: 1.8,
             maxWidth: '360px',
             fontFamily: 'var(--font-inter), sans-serif',
-            marginBottom: '2rem',
+            marginBottom: '1.5rem',
           }}
         >
           {subtitle}
         </div>
 
-        {/* CTAs — pointer-events re-enabled */}
+        {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-3 pointer-events-auto w-full sm:w-auto"
+          className="flex flex-row gap-2 sm:gap-3 pointer-events-auto"
           style={{ opacity: ctasVisible ? 1 : 0, transition: 'opacity 0.8s ease' }}
         >
           <button
@@ -228,9 +241,9 @@ export const HeroFuturistic = () => {
               background: '#FF3030',
               color: '#fff',
               border: 'none',
-              padding: '11px 24px',
+              padding: '9px 16px',
               borderRadius: '4px',
-              fontSize: '11px',
+              fontSize: '10px',
               letterSpacing: '1px',
               fontWeight: 600,
               cursor: 'pointer',
@@ -242,12 +255,12 @@ export const HeroFuturistic = () => {
           <button
             onClick={() => document.getElementById('chat-demo')?.scrollIntoView({ behavior: 'smooth' })}
             style={{
-              background: 'transparent',
-              color: 'rgba(236,236,236,0.5)',
-              border: '1px solid rgba(255,48,48,0.2)',
-              padding: '11px 24px',
+              background: 'rgba(255,255,255,0.08)',
+              color: 'rgba(255,255,255,0.85)',
+              border: '1px solid rgba(255,255,255,0.25)',
+              padding: '9px 16px',
               borderRadius: '4px',
-              fontSize: '11px',
+              fontSize: '10px',
               letterSpacing: '1px',
               cursor: 'pointer',
               fontFamily: 'var(--font-inter), sans-serif',
