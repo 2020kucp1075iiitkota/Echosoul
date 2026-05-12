@@ -162,7 +162,7 @@ export const HeroFuturistic = () => {
   }, [visibleLines, titleLines.length]);
 
   return (
-    <div className="h-svh relative overflow-hidden bg-[#0D0D10]">
+    <div className="h-svh w-full relative overflow-hidden bg-[#0D0D10]">
 
       {/* Text overlay */}
       <div className="h-svh w-full absolute z-50 pointer-events-none flex justify-center flex-col pt-20 px-6 items-center text-center sm:items-start sm:text-left sm:px-10 md:px-14 sm:max-w-2xl sm:left-0">
@@ -260,6 +260,7 @@ export const HeroFuturistic = () => {
       {/* Full-screen 3D Canvas */}
       <Canvas
         flat
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
         gl={async (props) => {
           const renderer = new THREE.WebGPURenderer(props as any);
           await renderer.init();
