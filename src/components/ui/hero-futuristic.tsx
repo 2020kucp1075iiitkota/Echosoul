@@ -134,8 +134,8 @@ const Scene = () => {
     uniforms.uPointer.value = pointer;
   });
 
-  const scaleFactor = isMobile ? 0.55 : 0.4;
-  const xOffset = isMobile ? 0 : w * 0.22;
+  const scaleFactor = isMobile ? 0.55 : 0.75;
+  const xOffset = isMobile ? 0 : w * 0.3;
   return (
     <mesh ref={meshRef} position={[xOffset, 0, 0]} scale={[w * scaleFactor, h * scaleFactor, 1]} material={material}>
       <planeGeometry />
