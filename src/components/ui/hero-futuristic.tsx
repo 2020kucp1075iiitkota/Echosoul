@@ -125,7 +125,7 @@ const Scene = () => {
     if (meshRef.current && 'material' in meshRef.current && meshRef.current.material) {
       const mat = meshRef.current.material as any;
       if ('opacity' in mat) {
-        mat.opacity = THREE.MathUtils.lerp(mat.opacity, (visible && !isMobile) ? 1 : 0, 0.07);
+        mat.opacity = THREE.MathUtils.lerp(mat.opacity, visible ? (isMobile ? 0.75 : 1) : 0, 0.07);
       }
     }
   });
@@ -165,11 +165,11 @@ export const HeroFuturistic = () => {
     <div className="h-svh relative overflow-hidden bg-[#0D0D10]">
 
       {/* Text overlay — absolute, left-aligned, on top of canvas */}
-      <div className="h-svh w-full absolute z-50 pointer-events-none px-5 sm:px-10 md:px-14 flex justify-center flex-col max-w-2xl left-0 pt-20">
+      <div className="h-svh w-full absolute z-50 pointer-events-none flex justify-center flex-col pt-20 px-6 items-center text-center sm:items-start sm:text-left sm:px-10 md:px-14 sm:max-w-2xl sm:left-0">
 
         {/* Badge */}
         <div
-          className="inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm mb-4 sm:mb-8 self-start"
+          className="inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm mb-4 sm:mb-8 sm:self-start"
           style={{ opacity: visibleLines > 0 ? 1 : 0, transition: 'opacity 0.6s ease' }}
         >
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF3030] opacity-70" />
@@ -207,9 +207,9 @@ export const HeroFuturistic = () => {
           style={{
             opacity: subtitleVisible ? 1 : 0,
             color: 'rgba(236, 236, 236, 0.38)',
-            fontSize: '0.95rem',
+            fontSize: '0.9rem',
             lineHeight: 1.8,
-            maxWidth: '400px',
+            maxWidth: '360px',
             fontFamily: 'var(--font-inter), sans-serif',
             marginBottom: '2rem',
           }}
@@ -219,7 +219,7 @@ export const HeroFuturistic = () => {
 
         {/* CTAs — pointer-events re-enabled */}
         <div
-          className="flex flex-col sm:flex-row gap-3 pointer-events-auto"
+          className="flex flex-col sm:flex-row gap-3 pointer-events-auto w-full sm:w-auto"
           style={{ opacity: ctasVisible ? 1 : 0, transition: 'opacity 0.8s ease' }}
         >
           <button
