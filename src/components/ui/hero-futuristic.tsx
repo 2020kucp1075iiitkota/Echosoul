@@ -172,7 +172,6 @@ export const HeroFuturistic = () => {
           className="inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm mb-4 sm:mb-8 sm:self-start"
           style={{ opacity: visibleLines > 0 ? 1 : 0, transition: 'opacity 0.6s ease', background: 'rgba(13,13,16,0.5)' }}
         >
-          <div className="w-1.5 h-1.5 rounded-full bg-[#FF3030] opacity-70" />
           <span className="text-[9px] tracking-[3px] uppercase" style={{ color: '#FF3030' }}>
             AI-Powered Digital Immortality
           </span>
