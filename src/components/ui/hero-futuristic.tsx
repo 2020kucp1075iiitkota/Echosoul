@@ -164,26 +164,13 @@ export const HeroFuturistic = () => {
   return (
     <div className="h-svh relative overflow-hidden bg-[#0D0D10]">
 
-      {/* Badge — pinned to top black area on mobile, hidden on desktop */}
-      <div
-        className="sm:hidden absolute top-20 left-0 right-0 z-50 flex justify-center pointer-events-none px-6"
-        style={{ opacity: visibleLines > 0 ? 1 : 0, transition: 'opacity 0.6s ease' }}
-      >
-        <div className="inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm bg-[#0D0D10]/60">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#FF3030] opacity-70" />
-          <span className="text-[9px] tracking-[3px] uppercase" style={{ color: '#FF3030' }}>
-            AI-Powered Digital Immortality
-          </span>
-        </div>
-      </div>
-
       {/* Text overlay */}
       <div className="h-svh w-full absolute z-50 pointer-events-none flex justify-center flex-col pt-20 px-6 items-center text-center sm:items-start sm:text-left sm:px-10 md:px-14 sm:max-w-2xl sm:left-0">
 
-        {/* Badge — desktop only inline */}
+        {/* Badge — inline above title on both mobile and desktop */}
         <div
-          className="hidden sm:inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm mb-8 self-start"
-          style={{ opacity: visibleLines > 0 ? 1 : 0, transition: 'opacity 0.6s ease' }}
+          className="inline-flex items-center gap-2 border border-[#FF3030]/20 px-3 py-1.5 rounded-sm mb-4 sm:mb-8 sm:self-start"
+          style={{ opacity: visibleLines > 0 ? 1 : 0, transition: 'opacity 0.6s ease', background: 'rgba(13,13,16,0.5)' }}
         >
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF3030] opacity-70" />
           <span className="text-[9px] tracking-[3px] uppercase" style={{ color: '#FF3030' }}>
